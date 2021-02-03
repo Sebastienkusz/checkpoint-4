@@ -12,6 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Category
 {
+    const DEV_IDENTIFIER = 'Projet en Groupe';
+
+    const SIDE_IDENTIFIER = 'Projet Perso';
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue

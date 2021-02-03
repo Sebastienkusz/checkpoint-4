@@ -3,5 +3,10 @@
 {% block title %}Mes Projets{% endblock %}
 
 {% block body %}
-    {{ dump(projects) }}
+    {% for project in projects %}
+    {{ dump(project) }}
+        {% if is_granted('ROLE_ADMIN') %}
+    {{ include('admin/_delete_project.html.twig') }}
+        {% endif %}
+    {% endfor %}
 {% endblock %}

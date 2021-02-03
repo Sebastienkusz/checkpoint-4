@@ -4,9 +4,12 @@ namespace App\Entity;
 
 use App\Repository\PosterRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=PosterRepository::class)
+ * @Vich\Uploadable()
  */
 class Poster
 {
@@ -27,6 +30,13 @@ class Poster
      */
     private $project;
 
+    /**
+     * @Vich\UploadableField(mapping="poster_file", fileNameProperty="name")
+     * @var File
+     */
+    private $posterFile;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -37,7 +47,7 @@ class Poster
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -65,4 +75,24 @@ class Poster
 
         return $this;
     }
+
+    /**
+     * @return File
+     */
+    public function getPosterFile(): ?File
+    {
+        return $this->posterFile;
+    }
+
+    /**
+     * @param File $posterFile
+     * @return Poster
+     */
+    public function setPosterFile(File $posterFile = null): Poster
+    {
+        $this->posterFile = $posterFile;
+        return $this;
+    }
+
+
 }

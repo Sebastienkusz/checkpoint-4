@@ -36,8 +36,13 @@ class ProjectType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
             ])
-            ->add('description')
-            ->add('poster')
+            ->add('description', TextType::class, [
+                'label' => 'Description',
+            ])
+            ->add('poster', PosterType::class, [
+                'label' => 'Charger une photo',
+                'required' => false,
+            ])
         ;
     }
 
