@@ -1,0 +1,26 @@
+{% block header %}
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="{{ path('project_index') }}"><i class="nav-logo fas fa-laptop-house fa-2x"></i></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link nav-link-side" href="#">Projet perso</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-dev" href="#">Projet en groupe</a>
+                </li>
+            </ul>
+            <div>
+                {% if app.user %}
+                    <a class="" href="/logout"><i class="user-mobile fas fa-user-alt-slash fa-2x"></i></a>
+                {% else %}
+                    <a class="" href="{{ path('app_login') }}"><i class="user-mobile fas fa-user fa-2x"></i></a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+{% endblock %}

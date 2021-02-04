@@ -9,8 +9,8 @@ use Doctrine\Persistence\ObjectManager;
 class CategoryFixtures extends Fixture
 {
     const CATEGORIES = [
-        'Side project' => Category::SIDE_IDENTIFIER,
-        'Dev' => Category::DEV_IDENTIFIER,
+        'Projet Perso' => Category::SIDE_IDENTIFIER,
+        'Projet en Groupe' => Category::DEV_IDENTIFIER,
     ];
 
     public function load(ObjectManager $manager)

@@ -12,9 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Category
 {
-    const DEV_IDENTIFIER = 'Projet en Groupe';
+    const DEV_IDENTIFIER = 'Dev project';
 
-    const SIDE_IDENTIFIER = 'Projet Perso';
+    const SIDE_IDENTIFIER = 'Side project';
 
     /**
      * @ORM\Id
