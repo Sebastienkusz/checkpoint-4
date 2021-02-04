@@ -3,8 +3,10 @@
 {% block title %}Page Administrateur{% endblock %}
 
 {% block body %}
+    <div class="container-fluid col-10 text-black">
     {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button>Ajouter</button>
+    <button>Valider</button>
     {{ form_end(form) }}
+    </div>
 {% endblock %}

@@ -18,6 +18,9 @@ class ProjectType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'label'     => 'Nom',
+                'attr'      => [
+                    'class' => 'form-control',
+                ],
                 'required'  => true,
             ])
             ->add('link', TextType::class, [

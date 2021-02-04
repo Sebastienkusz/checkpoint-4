@@ -22,7 +22,7 @@
                 </div>
                 <div class="mr-4">
                 {% if app.user %}
-                    <a class="" href="/logout"><i class="user-mobile fas fa-user-alt-slash fa-2x"></i></a>
+                    <a class="" href="{{ path('app_logout') }}"><i class="user-mobile fas fa-user-alt-slash fa-2x"></i></a>
                 {% else %}
                     <a class="" href="{{ path('app_login') }}"><i class="user-mobile fas fa-user fa-2x"></i></a>
                 {% endif %}

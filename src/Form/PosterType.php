@@ -18,6 +18,9 @@ class PosterType extends AbstractType
                 'allow_delete'  => true,
                 'download_uri' => true,
                 'label' => ' ',
+                'attr'      => [
+                    'class' => 'form-control',
+                ],
             ])
 
         ;

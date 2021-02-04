@@ -11,77 +11,68 @@
         </h1>
     </div>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 h-center">
-                <div class="grid">
+        <div class="">
+            <div class="h-center">
+                <div class="project-body">
                     {% for project in projects %}
-                        <div class="grid-item">
-
-                            <a href="" class="" data-toggle="modal" data-target="#modal-{{ project.id }}"><img class="project-img" src="/uploads/{{ project.poster.name }}" alt=""></a>
-                            <div class="title-band">
-                                <div class="my-1"> {{ project.name }} </div>
+                        <div class="row justify-content-between">
+                            <div class="m-5 project-summary justify-content-center">
+                                <a href="" class="" data-toggle="modal" data-target="#modal-{{ project.id }}">
+                                    <img class="project-img justify-content-center" src="/uploads/{{ project.poster.name }}" alt="{{ project.poster.name }}">
+                                </a>
+                                <div class="title-band"> {{ project.name }} </div>
                             </div>
                         </div>
-
                         <div class="modal fade" id="modal-{{ project.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLongTitle">{{ project.name }}</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
+                                    <div class="pt-2 pr-2">
+                                        <button type="button" class="text-right close" data-dismiss="modal" aria-label="Close">
+                                            <i class="far fa-times-circle"></i>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-
-
-                                        <div class="row d-flex justify-content-center pb-3 pt-3">
-                                            <div class="col-5 pb-4">
-                                                <div class="pb-2 row">
-                                                    <h3 class="pb-1">{{ project.name }}</h3>
-                                                    {{ project.id }}
+                                        <div class="row d-flex justify-content-center pb-4">
+                                            <div class="project-modal col-10 pb-4 text-center">
+                                                <div class="pb-2">
+                                                    <h2 class="pb-1 project-title">{{ project.name }}</h2>
                                                 </div>
-                                                <div>
+
+                                                <div class="pt-2">
                                                     {% for technology in project.technologies %}
                                                         <i class="{{ technology.logo }} fa-2x"></i>
                                                     {% endfor %}
                                                 </div>
-                                                <div>
+                                                <div class="mt-2">
                                                     <div class="pb-1">
-                                                        dernière mise à jour : {{ project.updatedAt|date("d/m/Y") }}
+                                                        <h5>dernière mise à jour :</h5>
+                                                        {{ project.updatedAt|date("d/m/Y") }}
                                                     </div>
-
-                                                        <div class="mt-4">
-                                                            Document : <a class="link" href="https://{{ project.link }}" target="_blank">Lien vers l'application</a>
-                                                        </div>
-
+                                                    <div class="py-4">
+                                                        <a class="link" href="https://{{ project.link }}" target="_blank">Lien vers l'application</a>
+                                                    </div>
                                                 </div>
-                                                <div class="row d-flex justify-content-center pt-3 pb-3">
-                                                    <div class="pl-3">Description :</div>
+                                                <div class="pt-3 pb-3">
+                                                    <h5>Description :</h5>
                                                     <p class="col">
                                                         {{ project.description }}
                                                     </p>
                                                 </div>
-                                                {# % if is_granted('ROLE_ADMIN') %}
-                                                    <a href="{{ path('profile_resource_edit', {'id': resource.id}) }}">Editer</a>
-                                                {% endif % #}
                                             </div>
                                         </div>
-
-
                                     </div>
-                                    <div class="modal-footer">
+                                    <div class="d-flex container-fluid justify-content-end">
                                         {% if is_granted('ROLE_ADMIN') %}
                                             {{ include('admin/_delete_project.html.twig') }}
+                                            <a href="{{ path('admin_project_edit', {'id': project.id}) }}"><i class="fas fa-edit fa-2x"></i></a>
                                         {% endif %}
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     {% endfor %}
-        </div>
-    </div>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
