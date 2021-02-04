@@ -29,25 +29,36 @@ body {
   .navbar-nav {
     .nav-link-dev,
     .nav-link-side {
-      color: $main-yellow;
+      color: $main-black;
       font-family: $police-text;
-      z-index: 2000;
+      &:hover {
+        color: $main-yellow;
+      }
     }
   }
 }
 
+.home-title {
+  margin-top: 5em;
+  margin-bottom: 4em;
+}
 
-.band {
+
+.title-band {
   position: absolute;
-  bottom: 0;
-  background-color: black;
+  bottom: 1em;
+  background-color: transparentize($main-blue, 0);
   width: 100%;
-  height: 30px;
-  opacity: .7;
+  height: 2em;
   text-align: center;
-  color: white;
+  color: $main-yellow;
 }
 
 .user-mobile {
   color : $main-yellow;
+}
+
+.project-img {
+  max-width: 250px;
+  max-height: 100%;
 }

@@ -93,6 +93,4 @@ class Poster
         $this->posterFile = $posterFile;
         return $this;
     }
-
-
 }

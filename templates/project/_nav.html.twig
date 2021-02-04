@@ -14,12 +14,19 @@
                     <a class="nav-link nav-link-dev" href="#">Projet en groupe</a>
                 </li>
             </ul>
-            <div>
+            <div class="row">
+                <div class="mx-4">
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <a class="" href="{{ path('admin_project_new') }}"><i class="user-mobile fas fa-folder-plus fa-2x"></i></a>
+                    {% endif %}
+                </div>
+                <div class="mr-4">
                 {% if app.user %}
                     <a class="" href="/logout"><i class="user-mobile fas fa-user-alt-slash fa-2x"></i></a>
                 {% else %}
                     <a class="" href="{{ path('app_login') }}"><i class="user-mobile fas fa-user fa-2x"></i></a>
                 {% endif %}
+                </div>
             </div>
         </div>
     </nav>
