@@ -4,9 +4,10 @@
 
 {% block body %}
     <div class="container-fluid col-10 text-black">
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button>Valider</button>
-    {{ form_end(form) }}
+        <h2 class="d-flex mt-3 justify-content-center">Edition de Projet</h2>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button>Valider</button>
+        {{ form_end(form) }}
     </div>
 {% endblock %}
